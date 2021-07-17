@@ -24,17 +24,17 @@ export class AppComponent {
   }
 
   handleSubmit(event: Student) {
-    const index = this.students.findIndex(student => student.rollNumber === event.rollNumber);
-    if (index > -1) {
-      this.students.splice(index, 1, event);
+    const updatedList = [...this.students];
+    if (this.isEdit) {
+      const index = this.students.findIndex(student => student.id === event.id);
+      updatedList.splice(index, 1, event);
     } else {
-      const updatedList = [...this.students];
-      updatedList.push(event);
-      updatedList.sort((a, b) => {
-        return a.rollNumber - b.rollNumber;
-      });
-      this.students = [...updatedList];
+      updatedList.push({...event, id: this.students.length+1});
     }
+    updatedList.sort((a, b) => {
+      return a.rollNumber - b.rollNumber;
+    });
+    this.students = [...updatedList];
     this.resetSelection();
   }
 

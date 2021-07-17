@@ -23,8 +23,10 @@ export class StudentFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    if (this.isEdit && this.student)
-    this.studentForm.setValue(this.student);
+    if (this.isEdit && this.student) {
+      delete this.student['id'];
+      this.studentForm.setValue(this.student);
+    }
   }
 
   initializeStudentForm(): void {

@@ -4,4 +4,5 @@ export interface Student {
     rollNumber: number;
     age: number;
     gender: string;
+    id?:number;
 }
