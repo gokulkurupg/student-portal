@@ -1,0 +1,51 @@
+<mat-card [formGroup]="studentForm">
+  <mat-card-content>
+    <div class="field-wrapper">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+        <mat-error *ngIf="studentForm.controls.firstName.invalid">{{
+          getError("firstName", false)
+          }}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+        <mat-error *ngIf="studentForm.controls.lastName.invalid">{{
+          getError("lastName", false)
+          }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="field-wrapper">
+      <mat-form-field>
+        <mat-label>Roll Number</mat-label>
+        <input matInput formControlName="rollNumber"/>
+        <mat-error *ngIf="studentForm.controls.rollNumber.invalid">{{
+          getError("rollNumber", true)
+          }}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age"/>
+        <mat-error *ngIf="studentForm.controls.age.invalid">{{
+          getError("age", true)
+          }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="field-wrapper">
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input matInput formControlName="gender"/>
+        <mat-error *ngIf="studentForm.controls.gender.invalid">{{
+          getError("gender", false)
+          }}</mat-error>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="form-actions">
+    <mat-hint>All fields are mandatory</mat-hint>
+    <button mat-raised-button color="primary" [disabled]="studentForm.invalid" (click)="handleSubmit()">
+      {{isEdit ? 'UPDATE' : 'ADD'}}
+    </button>
+  </mat-card-actions>
+</mat-card>

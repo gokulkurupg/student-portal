@@ -1,0 +1,14 @@
+.field-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    mat-form-field {
+      margin: 0.5rem;
+      width: 15rem;
+    }
+  }
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0.5rem;
+  }
